@@ -10,7 +10,7 @@
 		<div class="row">
 			<div class="col-md-12 text-center">
 				<ul class="social social-circle">
-					<li><a href="#"><i class="icon-twitter"></i></a></li>
+					<li><a target="_blank" href="https://twitter.com/FastransferPeru"><i class="icon-twitter"></i></a></li>
 					<li><a target="_blank" href="https://www.facebook.com/FasTransferOnline"><i class="icon-facebook"></i></a></li>
 					<li><a href="#"><i class="icon-youtube"></i></a></li>
 				</ul>

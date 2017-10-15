@@ -57,6 +57,7 @@
                         <div class="tab-content">
                             <div class="tab-pane active" role="tabpanel" id="step1">
                                 <h3>Inicio de operación</h3>
+                                <input type="text" class="hidden" name="changePrice" id="changePrice">
                                 <div class="row">
                                     <div class="col-lg-6">                                    
                                         <div class="form-group">
@@ -78,7 +79,7 @@
                                                         PEN
                                                     @endif
                                                 </span>
-                                                <input type="text" class="form-control" name="sendAmount" id="sendAmount" placeholder="00.000" maxlength="7">
+                                                <input type="text" class="form-control" name="sendAmount" id="sendAmount" placeholder="00.000" maxlength="10">
                                             </div>
                                         </div>
                                     </div>         
@@ -197,25 +198,31 @@
         var sell = 0;
         // Make sure it is public or set to Anyone with link can view 
         var url = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/od6/public/values?alt=json";
-        var sendAmount = parseFloat({{$sendAmount}}).toFixed(3);
-        var receivedAmount = parseFloat({{$receivedAmount}}).toFixed(3);;
+
+        var sendAmount = {!! str_replace(',', '', $sendAmount) !!};
+        sendAmount = parseFloat( sendAmount ).toFixed(2);
+        var receivedAmount = {!! str_replace(',', '', $receivedAmount) !!};
+        receivedAmount = parseFloat( receivedAmount ).toFixed(2);
+
         $.getJSON(url, function(data) {
             var entry = data.feed.entry;
             $(entry).each(function(){
-                // Column names are name, age, etc.
-                //$ ('.results').prepend('<h2>'+this.gsx$name.$t+'</h2><p>'+this.gsx$age.$t+'</p>');
+
                 buy = parseFloat(this.gsx$compra.$t).toFixed(3);
                 sell = parseFloat(this.gsx$venta.$t).toFixed(3);
                 //console.log("Compra:" + parseFloat(buy).toFixed(3), " Venta:" + parseFloat(sell).toFixed(3));
                 if ( {{$calculator}} == 1){
-                    receivedAmount = parseFloat( buy * sendAmount ).toFixed(3);
+                    $("#changePrice").attr("value",buy);
+                    receivedAmount = parseFloat( buy * sendAmount ).toFixed(2);
                 }
                 else if  ( {{$calculator}} == 2){
+                    $("#changePrice").attr("value",sell);
                     sendAmount = receivedAmount;
-                    receivedAmount = parseFloat(  sendAmount / sell ).toFixed(3);
+                    receivedAmount = parseFloat(  sendAmount / sell ).toFixed(2);
                 }
-                $("#sendAmount").val(sendAmount);
-                $("#receivedAmount").val(receivedAmount);
+
+                $("#sendAmount").val(numberWithCommas(sendAmount));
+                $("#receivedAmount").val(numberWithCommas(receivedAmount));
                 $("#operationTitle").html("Compra: " + parseFloat(buy).toFixed(3) + " - Venta: " + parseFloat(sell).toFixed(3) );
                 
             });
@@ -230,11 +237,13 @@
                 select = "<option  value=1 >Dólares</option>" +
                 "<option  value=2 selected >Soles</option>";
                 sendSpan = "USD"; receivedSpan = "PEN";
+                $("#changePrice").attr("value",buy);
             }
             else if ( $("#sendCurrency").val() == 2){
                 select = "<option  value=1 selected>Dólares</option>" +
                 "<option  value=2 >Soles</option>";
                 sendSpan = "PEN"; receivedSpan = "USD";
+                $("#changePrice").attr("value",sell);
             }
             if ( $("#sendCurrency").val() > 0){
                 $("#receivedCurrency").html(select);
@@ -244,23 +253,32 @@
             }
         });
 
-        $("#sendAmount").on('change keyup paste', function () {
+        $("#sendAmount").on('change', function () {
             completeReceivedAmount();
         });
 
         function completeReceivedAmount() {
+            var initialAmount = 100;
             var currency = $("#sendCurrency").val();
             var receivedAmount_input = 0;
-            var sendAmount_input = $("#sendAmount").val();
-            sendAmount_input = parseFloat(sendAmount_input).toFixed(3);
+            var sendAmount_input = $("#sendAmount").val().replace(",","");
+            sendAmount_input = parseFloat(sendAmount_input).toFixed(2);
             sendAmount_input = getNum(sendAmount_input);
+            if (sendAmount_input == 0) {
+                sendAmount_input = initialAmount;
+            }
             if ( currency == 1){
                 receivedAmount_input = sendAmount_input * buy;
             }
             else
                 receivedAmount_input = sendAmount_input / sell;
-            $("#receivedAmount").val(parseFloat(receivedAmount_input).toFixed(3));
-            $("#sendAmount").val(parseFloat(sendAmount_input).toFixed(3));
+
+            receivedAmount_input = parseFloat(receivedAmount_input).toFixed(2);
+            sendAmount_input     = parseFloat(sendAmount_input).toFixed(2);
+
+
+            $("#sendAmount").val(numberWithCommas(sendAmount_input));
+            $("#receivedAmount").val(numberWithCommas(receivedAmount_input));
 
         }    
         //Funcion para obtener numero de texto
@@ -401,6 +419,14 @@
                 }
              });
         });
+
+
+        //Funcion formato de numero
+        function numberWithCommas(x) {
+            var parts = x.toString().split(".");
+            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            return parts.join(".");
+        }
     });     
 </script>
 
