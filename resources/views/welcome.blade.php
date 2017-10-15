@@ -15,41 +15,93 @@
                         </h2>
                     </div>
                 </div><br>
+                {{Form::open(['route' => ['home.store'], 'id'=>'formSuggestion'])}}
                 <div class="row">
                     <div class="col-md-4"></div>
                     <div class="col-md-4">
                         <div class="to-animate form-group" style="margin-bottom: 3px;">
-                            <select class="form-control calculator" id="currency" style="background-color: #eeeeee; border: 1px solid rgba(0, 0, 0, 0.1);">
+                            <select name="calculator" class="form-control calculator" id="currency" style="background-color: #eeeeee; border: 1px solid rgba(0, 0, 0, 0.1);">
                                 <option value="1">ENVÍA($) - RECIBE(S/)</option>
                                 <option value="2">ENVÍA(S/) - RECIBE($)</option>
                             </select>
                         </div>
                         <div class="to-animate form-group" style="margin-bottom: 3px;">
                             <div class="input-group">
-                                <input style="background-color: #eeeeee; padding: 10px 8px;" class="form-control calculator" id="usdAmount" type="text" name="usdAmount" placeholder="0.000" required="" maxlength="10" >
+                                <input style="background-color: #eeeeee; padding: 10px 8px;" class="form-control calculator" id="usdAmount" type="text" name="sendAmount" placeholder="0.000" required="" maxlength="10" >
                                 <span class="input-group-addon" style="background-color: #329998; color: #f9f6f0; border: 1px solid rgba(0, 0, 0, 0.1); border-left-width: 1px;">USD</span>
                             </div> 
                         </div>
                         <div class="to-animate form-group ">
                             <div class="input-group">
-                                <input style="background-color: #eeeeee; padding: 10px 8px;" class="form-control calculator" id="penAmount" type="text" name="penAmount" placeholder="0.000" required="" maxlength="10">
+                                <input style="background-color: #eeeeee; padding: 10px 8px;" class="form-control calculator" id="penAmount" type="text" name="receivedAmount" placeholder="0.000" required="" maxlength="10">
                                 <span class="input-group-addon" style="background-color: #329998; color: #f9f6f0; border: 1px solid rgba(0, 0, 0, 0.1); border-left-width: 1px;">PEN</span>
                             </div>  
                         </div>    
                         <p style="color: rgba(255, 255, 255, 0.8);" id="priceText" class="to-animate">
                         </p>
                     </div>
-                    <div class="col-md-4"></div>
                 </div><br>
-                
+                <div class="row">
+                    <div class="col-lg-2"> 
+                       
+                    </div>  
+                    <div class="to-animate col-lg-8 text-center">                                    
+                        {{Form::submit('Registrar operación', ['class'=>'btn btn-primary btn-lg'])}}                                  
+                    </div>
+                </div>
+                {{Form::close()}} 
             </div>
         </div>
     </div>
     <div class="slant"></div>
 </section>
 
-<section id="fh5co-intro">
+<section id="fh5co-steps" data-section="steps" style="background-image: url(/elate/images/dolares.jpg);" data-stellar-background-ratio="0.5">
+    <div class="fh5co-overlay"></div>
     <div class="container">
+        <div class="row">
+            <div class="col-md-12 section-heading text-left" style="margin-bottom: 0px !important;">
+                <h2 class=" left-border to-animate">¿Cómo funciona?</h2>
+                <div class="row">
+                    <div class="col-md-8 subtext to-animate">
+                        <h3>Cambia tu dinero en tres simples pasos</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-4 fh5co-steps to-animate">
+                <i class="icon to-animate-3 icon-edit"></i>
+                <h3>1. Cotiza</h3>
+                <p>nuestro tipo de cambio, compáralo y asegúrate de ahorrar con nostros</p>
+            </div>
+            <div class="col-md-4 col-sm-4 fh5co-steps to-animate">
+                <i class="icon to-animate-3 icon-dollar"></i>
+                <h3>2. Envía</h3>
+                <p>el monto indicado a nuestras cuentas bancarias y confirma donde deseas recibir tu dinero.</p>
+            </div>
+            <div class="col-md-4 col-sm-4 fh5co-steps to-animate">
+                <i class="icon to-animate-3 icon-check"></i>
+                <h3>3. Recibe</h3>
+                <p>el monto cambiado en tu cuenta bancaria o tarjeta de crédito que nos indiques.</p>
+            </div>
+            <div class="clearfix visible-sm-block"></div>
+        </div>
+    </div>
+</section>
+
+<section id="fh5co-intro" data-section="channels" style="padding: 11em 0;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 section-heading text-left">
+                <h2 class=" left-border to-animate">Canales de atención</h2>
+                <div class="row">
+                    <div class="col-md-8 subtext to-animate">
+                        <h3>Cotiza y comunícate con nosotros para realizar tu operación</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row row-bottom-padded-lg">
             <div class="fh5co-block to-animate" style="background-color: white;">
                 <div class="overlay-darker"></div>
@@ -75,7 +127,7 @@
                 <div class="fh5co-text">
                     <i class="fh5co-intro-icon icon-envelope"></i>
                     <h2>Email</h2>
-                    <p>Nuestro buzón de atención absolverá todas tus consultas y requerimientos.</p>
+                    <p>Nuestro buzón de atención absolverá en breve todas tus consultas y requerimientos.</p>
                 </div>
             </div>
             <div id="contactBtn" class="to-animate col-md-7 col-md-offset-5">
@@ -302,10 +354,11 @@ experiencia en sistemas SAP en sistemas logísticos, comerciales.</p>
             <div class="col-md-6 to-animate">
                 <h3>Información de contacto</h3>
                 <ul class="fh5co-contact-info">
-                    <li><i class="icon-phone"></i>949 565 220 | 960 136 054 | 954 604 372</li>
+                    <li><i class="icon-phone"></i> 949 565 220 | 960 136 054 | 954 604 372</li>
                     <li><i class="icon-envelope"></i>informes@ftransfer.pe</li>
-                    <li><i class="icon-globe"></i> <a style="color: #329998;" href="http://www.ftransfer.pe/" target="_blank">ftransfer.pe</a></li>
-                    <li><i class="icon-facebook"></i> <a style="color: #329998;" href="https://www.facebook.com/FastransferPeruSAC" target="_blank">@FastransferPeruSAC</a></li>
+                    <li><i class="icon-globe"></i> <a href="http://www.ftransfer.pe/" target="_blank">ftransfer.pe</a></li>
+                    <li><i class="icon-twitter"></i><a target="_blank" href="https://twitter.com/FastransferPeru">@FastransferPeruSAC</a></li>
+                    <li><i class="icon-facebook"></i><a href="https://www.facebook.com/FastransferPeruSAC" target="_blank">@FastransferPeruSAC</a></li>
                 </ul>
             </div>
             <form id="form-contact" action="message.php" method="post">

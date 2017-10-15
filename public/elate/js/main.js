@@ -467,7 +467,32 @@
 		}
 	};
 
+	var stepsAnimate = function() {
+		var contact = $('#fh5co-steps');
+		if ( contact.length > 0 ) {	
 
+			contact.waypoint( function( direction ) {
+										
+				if( direction === 'down' && !$(this.element).hasClass('animated') ) {
+
+					setTimeout(function() {
+						contact.find('.to-animate').each(function( k ) {
+							var el = $(this);
+							
+							setTimeout ( function () {
+								el.addClass('fadeInUp animated');
+							},  k * 200, 'easeInOutExpo' );
+							
+						});
+					}, 200);
+
+					$(this.element).addClass('animated');
+						
+				}
+			} , { offset: '80%' } );
+
+		}
+	};
 	
 
 
@@ -501,7 +526,7 @@
 		aboutAnimate();
 		countersAnimate();
 		contactAnimate();
-		
+		stepsAnimate();
 
 	});
 

@@ -1,5 +1,6 @@
 
-<header role="banner" id="fh5co-header">
+<header role="banner" id="fh5co-header" style="background-image: url(/elate/images/dolares.jpg);">
+        <div style="background-color: transparent; background: rgba(0, 0, 0, 0.8); position: absolute; top: 0; bottom: 0; left: 0; right: 0;" ></div>
     <div class="container">
         <!-- <div class="row"> -->
         <nav class="navbar navbar-default">
@@ -13,13 +14,22 @@
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="#" data-nav-section="home"><span>Inicio</span></a></li>
+                <li><a href="#" data-nav-section="steps"><span>Operaciones</span></a></li>
+                <li><a href="#" data-nav-section="channels"><span>Canales</span></a></li>
                 <li><a href="#" data-nav-section="testimonials"><span>Clientes</span></a></li>
                 <li><a href="#" data-nav-section="services"><span>Beneficios</span></a></li>
 <!--                    <li><a href="#" data-nav-section="about"><span>Equipo</span></a></li>-->
                 <li><a href="#" data-nav-section="contact"><span>Contacto</span></a></li>
                 @if (Auth::guest())
-                    <li><a href="{{ url('/login') }}" data-nav-section=""><span>Iniciar Sesion</span></a></li>
-                    <li><a href="{{ url('/register') }}" data-nav-section=""><span>Registrar</span></a></li>
+                    <li class="dropdown">
+                        <a id="user-name" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            Usuario<span class="caret"> </span>
+                        </a>
+                        <ul id="user-name-dropdown"  class="dropdown-menu dropdown-user" role="menu">
+                            <li><a class="user-name-a"href="{{ url('/login') }}" data-nav-section=""><span>Iniciar Sesion</span></a></li>
+                            <li><a class="user-name-a" href="{{ url('/register') }}" data-nav-section=""><span>Registrar</span></a></li>
+                        </ul>   
+                    </li>   
                 @else
                     <li class="dropdown">
                         <a id="user-name" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

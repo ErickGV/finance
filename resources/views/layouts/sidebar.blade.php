@@ -5,7 +5,7 @@
                 <a href="/mi-cuenta/"><i class="fa fa-dashboard fa-fw"></i> Mi Cuenta</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-users fa-fw"></i> Mis Datos<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-users fa-fw"></i> Datos<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="{{route('customer.index')}}">Mis Datos Personales</a>
@@ -19,7 +19,7 @@
                 </ul>
             </li>
             <li>
-                <a href="#"><i class="fa fa-money fa-fw"></i> Mis Movimientos<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-money fa-fw"></i> Movimientos<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="{{route('bank_movements.index')}}">Consultar</a>

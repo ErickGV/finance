@@ -4,7 +4,7 @@
 
 @section('content')
 
-<section class="customer-home" style="background-image: url(/elate/images/dolares.jpg); " data-stellar-background-ratio="0.5">   
+<section class="customer-home credit-card" style="background-image: url(/elate/images/dolares.jpg); " data-stellar-background-ratio="0.5">   
     <div class="gradient"></div>
     <div class="container">
         <div class="text-wrap">
@@ -18,6 +18,16 @@
                 </div><br>
                 <div class="row">
                     <div class="col-lg-9">
+                        @if(session()->has('success'))
+                            <div class="alert alert-success">
+                                <strong>{{ session()->get('success') }}</strong>
+                            </div>
+                        @endif
+                        @if(session()->has('warning'))
+                            <div class="alert alert-danger">
+                                <strong>{{ session()->get('warning') }}</strong>
+                            </div>
+                        @endif
                     </div> 
                     <div class="col-lg-3 form-group text-center">
                         <a href="{{route('credit_card.create')}}">
@@ -31,30 +41,35 @@
                             <tr class="headings"> 
                                 <th>Banco</th>                                         
                                 <th>Número de tarjeta</th>                                         
-                                <th>Moneda</th>                                         
+                                <th>Moneda</th>  
+                                <th>Alias</th>                                        
                                 <th colspan="2">Acciones</th>
                             </tr> 
                         </thead> 
                         <tbody class="transparent"> 
+                            @foreach($credit_cards as $key => $credit_card) 
                             <tr> 
-                                <td>BCP</td>                                         
-                                <td>2131232312</td> 
-                                <td>Soles</td>                                         
+                                <td>{{$credit_card->bank->name}}</td>                                         
+                                <td>{{$credit_card->number}}</td> 
+                                <td>{{$credit_card->currency->name}}</td>      
+                                <td>{{$credit_card->alias}}</td>                                                
                                 <td>
-                                    <a href="#" class="btn btn-primary btn-xs" title="Editar"><i class="fa fa-pencil"></i></a>
+                                    <a href="{{route('credit_card.edit', $credit_card->id)}}" class="btn btn-primary btn-xs" title="Editar"><i class="fa fa-pencil"></i></a>
                                     
-                                    <a href="" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#1" title="Eliminar"><i class="fa fa-remove"></i></a>
+                                    <a href="" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#{{$credit_card->id}}" title="Eliminar"><i class="fa fa-remove"></i></a>
                                     
                                 </td>
                             </tr> 
+                            @include('modals.delete', ['id'=> $credit_card->id, 'message' => '¿Está seguro que desea eliminar esta tarjeta de crédito?', 'route' => route('credit_card.delete', $credit_card->id)])
+                            @endforeach
                         </tbody> 
                     </table>
                 </div>
+                {{ $credit_cards->links() }}
             </div>
         </div>
     </div>
     <div class="slant"></div>
 </section>
-@include('modals.delete', ['id'=> 1, 'message' => '¿Está seguro que desea eliminar esta cuenta bancaria?', 'route' => route('credit_card.index'), 'method' => 'GET' ])
 
 @endsection

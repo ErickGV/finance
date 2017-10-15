@@ -18,6 +18,7 @@ $(document).ready(function(){
             var initialUsd = 100;
             $("#usdAmount").val(parseFloat(initialUsd).toFixed(3));
             $("#penAmount").val(parseFloat(initialUsd * buy).toFixed(3));
+            
         });
 
     });
@@ -59,6 +60,7 @@ $(document).ready(function(){
         else
             penAmount = usdAmount * buy;
         $("#penAmount").val(parseFloat(penAmount).toFixed(3));
+        $("#usdAmount").val(parseFloat(usdAmount).toFixed(3));
     }
     
     function completeUsd() {
@@ -73,6 +75,7 @@ $(document).ready(function(){
         else
             usdAmount = penAmount / buy;
         $("#usdAmount").val(parseFloat(usdAmount).toFixed(3));
+        $("#penAmount").val(parseFloat(penAmount).toFixed(3));
     }
     
     function getNum(val) {
@@ -80,5 +83,9 @@ $(document).ready(function(){
             return 0;
         }
             return val;
-}
+    }
+
+    
+
+    
 });

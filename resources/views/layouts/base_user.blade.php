@@ -4,17 +4,19 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
+	<meta name="description" content="Fastransfer. Fintech dedicados a cambiar dólares de una forma virtual, confiable y rápido. Te ofrecemos un precio competitivo en el mercado nacional." />
+	<meta name="keywords" content="fastransfer, cambiar dolares, precio del dolar, dolar hoy, cotizacion dolar, convertidor de moneda, cambio de moneda, tipo de cambio, compra venta dolares, casa de cambio, cuanto esta el dolar, dolar, fast transfer, change dolar, ftransfer, cambio de dolares, cambio divisas, tipo de cambio barato" />
 	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
+	<meta property="og:title" content="Fastransfer Peru SAC"/>
+	<meta property="og:image" content="http://www.ftransfer.pe/images/LogoFT.png"/>
+	<meta property="og:url" content="http://www.ftransfer.pe/"/>
 	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+	<meta property="og:description" content="Cambiamos tu divisa a través de transferencias bancarias a un precio super especial"/>
+	<meta name="twitter:title" content="Fastransfer Peru SAC" />
+	<meta name="twitter:image" content="http://www.ftransfer.pe/images/LogoFT.png" />
+	<meta name="twitter:url" content="http://www.ftransfer.pe/" />
+	<meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:description" content="Cambiamos tu divisa a través de transferencias bancarias a un precio super especial" />
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="/elate/images/Logo.ico">
@@ -43,9 +45,12 @@
 	<link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link type="text/css" href="/build/css/app.css" rel="stylesheet">
 	<link type="text/css" href="/build/css/bootstrap-datepicker.css" rel="stylesheet">
-	<script type="text/javascript" src="/build/js/jquery.min.js"></script>				
-	<script type="text/javascript" src="/vendor/bootstrap/js/bootstrap.min.js"></script>	
-	<title>FASTRANSFER PERU | @yield('title')</title>
+	<link type="text/css" href="/build/css/form-steps.css" rel="stylesheet">
+	<script type="text/javascript" src="/build/js/jquery.min.js"></script>	
+	<script type="text/javascript" src="/build/js/jquery.steps.min.js"></script>				
+	<script type="text/javascript" src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/build/js/form-steps.js"></script>
+	<title>Fastransfer PERU | @yield('title')</title>
 </head>
 <body>
 	@include('layouts.header_user')

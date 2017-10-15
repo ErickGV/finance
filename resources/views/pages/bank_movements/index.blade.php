@@ -4,7 +4,7 @@
 
 @section('content')
 
-<section class="customer-home" style="background-image: url(/elate/images/dolares.jpg); " data-stellar-background-ratio="0.5">   
+<section class="customer-home credit-card" style="background-image: url(/elate/images/dolares.jpg); " data-stellar-background-ratio="0.5">   
     <div class="gradient"></div>
     <div class="container">
         <div class="text-wrap">
@@ -20,24 +20,38 @@
                     <table class="table table-list-search table-striped responsive-utilities jambo_table bulk_action"> 
                         <thead> 
                             <tr class="headings"> 
-                                <th>Banco</th>                                         
-                                <th>Número de cuenta</th>                                         
-                                <th>Moneda</th>                                         
-                                <th>Monto</th>
+                                <th>Operación</th>   
                                 <th>Fecha</th>
+                                <th>Banco origen</th>                                         
+                                <th>Monto enviado</th>       
+                                <th>Banco destino</th>                                         
+                                <th>Monto recibido</th>                                
+                                <th>TC</th>
                             </tr> 
                         </thead> 
                         <tbody class="transparent"> 
+                            @foreach($operations as $key => $operation) 
                             <tr> 
-                                <td>BCP</td>                                         
-                                <td>2131232312</td> 
-                                <td>Soles</td>                                         
-                                <td>100.00</td>
-                                <td>10/05/2017</td>
+                                <td>{{$operation->number}}</td>                                         
+                                <td>{{$operation->date}}</td> 
+                                @if ( $operation->operationType == 1)
+                                    <td>{{$operation->sourceAccount->bank->name}}</td> 
+                                    <td>$ {{number_format($operation->sendAmount, 2 )}}</td>      
+                                    <td>{{$operation->targetAccount->bank->name}}</td>                                         
+                                    <td>S/ {{number_format($operation->receivedAmount, 2)}}</td>      
+                                @else 
+                                    <td>{{$operation->sourceAccount->bank->name}}</td> 
+                                    <td>S/ {{number_format($operation->sendAmount, 2 )}}</td>      
+                                    <td>{{$operation->targetAccount->bank->name}}</td>                                         
+                                    <td>$ {{number_format($operation->receivedAmount, 2)}}</td>  
+                                @endif
+                                <td>{{$operation->changePrice}}</td>  
                             </tr> 
+                            @endforeach
                         </tbody> 
                     </table>
                 </div>
+                {{ $operations->links() }}
             </div>
         </div>
     </div>

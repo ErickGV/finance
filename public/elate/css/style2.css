@@ -197,12 +197,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #fh5co-header {
-  position: absolute;
+  position: relative;
   z-index: 99;
   width: 100%;
   opacity: 1;
   top: 0;
-  margin-top: 40px;
+  /*margin-top: 40px;*/
+    background-size: cover;
+    background-attachment: fixed;
 }
 @media screen and (max-width: 768px) {
   #fh5co-header {
@@ -311,7 +313,7 @@ h1, h2, h3, h4, h5, h6 {
 #fh5co-header.navbar-fixed-top {
   position: fixed !important;
 /*  background: #fff; */
-  background: rgba(0,0,0,0.6);
+  /*background: rgba(0,0,0,0.6);*/
   -webkit-box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.1);
   -ms-box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.1);
@@ -493,7 +495,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 33.33%;
   float: left;
   text-align: center;
-  font-size: 16px;
+  font-size: 20px;
   min-height: 300px;
   vertical-align: middle;
   padding: 40px;
@@ -1448,3 +1450,101 @@ h1, h2, h3, h4, h5, h6 {
 .input-group-addon{
     
 }
+
+/*fh5co-steps*/
+
+#fh5co-steps {
+  padding: 4em 0;
+}
+@media screen and (max-width: 768px) {
+  #fh5co-steps {
+    padding: 2em 0;
+  }
+}
+
+#fh5co-steps {
+  padding: 7em 0;
+}
+@media screen and (max-width: 768px) {
+  #fh5co-steps {
+    padding: 4em 0;
+  }
+}
+
+#fh5co-steps {
+  background: #329998;
+  overflow: hidden;
+  background-color: transparent;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  width: 100%;
+  padding: 9em 0 10em 0;
+  color: #fff;
+}
+
+
+#fh5co-steps .fh5co-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+#fh5co-steps:before, #fh5co-steps:after {
+  position: absolute;
+  transform: rotate(-1.7deg);
+  -ms-transform: rotate(-1.7deg);
+  -webkit-transform: rotate(-1.7deg);
+  -o-transform: rotate(-1.7deg);
+  -moz-transform: rotate(-1.7deg);
+  background-color: #fff;
+  content: "";
+  z-index: 3;
+  display: inline-block;
+  height: 70px;
+  padding: 0;
+  width: 101%;
+}
+#fh5co-steps:before {
+  top: 0;
+  margin-top: -35px;
+}
+#fh5co-steps:after {
+  bottom: 0;
+  margin-bottom: -35px;
+}
+#fh5co-steps .fh5co-steps {
+  padding-right: 30px;
+}
+#fh5co-steps h3 {
+  font-size: 24px;
+  color: #fff !important;
+}
+#fh5co-steps .icon {
+  font-size: 70px;
+  margin-bottom: 30px;
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  display: inline;
+}
+#fh5co-steps .icon:before {
+  color: #fff;
+}
+#fh5co-steps .section-heading h2 {
+  color: #fff;
+}
+#fh5co-steps .section-heading h2.left-border:after {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse {
+    max-height: 450px !important;
+}
+
+
+
+

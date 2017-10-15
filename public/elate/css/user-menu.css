@@ -1,3 +1,7 @@
+#fh5co-header #navbar li a {
+  font-size:21px !important;
+}
+
 .input-group-addon{
   min-width: 70px;
 }
@@ -25,10 +29,7 @@ body {
   font-size: 15px !important;
 }
 
-.customer-home .form-control, .customer-home .form-control[disabled], .customer-home  .form-control[readonly], .customer-home  fieldset[disabled] .form-control {
-  background-color: transparent;
-  color: white;
-}
+
 
 #user-name {
 	background: transparent;
@@ -79,16 +80,16 @@ body {
  
 }
 .customer-home, .customer-home .text-wrap {
-  height: 1000px;
+  height: 800px;
 }
 .customer-home .text-wrap {
-  display: table;
+  display: block;
   width: 100%;
   position: relative;
   z-index: 4;
 }
 .customer-home .text-inner {
-  display: table-cell;
+  display: block;
   padding-top: 150px;
   text-align: center;
 }
@@ -112,18 +113,191 @@ body {
 
 .customer-home .text-inner h2 {
   font-size: 28px;
+  font-weight: 500;
   line-height: 38px;
-  font-weight: 300;
   color: rgba(255, 255, 255, 0.8);
   margin: 0;
 }
 
 @media screen and (max-width: 1200px) {
   .customer-home {
-    height: 1520px;
+    height: 1320px;
+  }
+}
+
+@media (min-width: 768px){
+  .customer-home .container {
+    width: 100% !important;
+  }
+}
+
+/*Estilos del Registro de usuario*/
+.register-home {
+  background-color: transparent;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  width: 100%;
+  background-color: #329998;
+  color: rgba(255, 255, 255, 0.8);
+  overflow: hidden;
+}
+.register-home .gradient {
+  background-color: transparent;
+  background-size: cover;
+  background: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  opacity: .9;
+  -webkit-backface-visibility: hidden;
+/*  background-color: #329998;*/
+  /* IE9, iOS 3.2+ */
+/*  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxsaW5lYXJHcmFkaWVudCBpZD0idnNnZyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIHN0b3AtY29sb3I9IiMzMjk5OTgiIHN0b3Atb3BhY2l0eT0iMSIgb2Zmc2V0PSIwIi8+PHN0b3Agc3RvcC1jb2xvcj0iIzZjYzk5YyIgc3RvcC1vcGFjaXR5PSIxIiBvZmZzZXQ9IjEiLz48L2xpbmVhckdyYWRpZW50PjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjdnNnZykiIC8+PC9zdmc+);*/
+/*  background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, color-stop(0, #329998), color-stop(1, #6cc99c));*/
+  /* Android 2.3 */
+/*  background-image: -webkit-linear-gradient(top left, #329998 0%, #6cc99c 100%);*/
+  /* IE10+ */
+/*  background-image: linear-gradient(to bottom right, #329998 0%, #6cc99c 100%);*/
+/*  background-image: -ms-linear-gradient(top left, #329998 0%, #6cc99c 100%);*/
+ 
+}
+.register-home, .register-home .text-wrap {
+  height: 800px;
+}
+.register-home .text-wrap {
+  display: table;
+  width: 100%;
+  position: relative;
+  z-index: 4;
+}
+.register-home .text-inner {
+  display: table-cell;
+  padding-top: 150px;
+  text-align: center;
+}
+.register-home .text-inner a {
+  color: black;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.5);
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+.register-home .text-inner a:hover, #register-home .text-inner a:active, #register-home .text-inner a:focus {
+  text-decoration: none;
+  color: white;
+  border-bottom: 1px dashed white;
+}
+.register-home .text-inner h1 {
+  font-size: 50px;
+  color: white;
+  margin: 0 0 20px 0;
+}
+
+.register-home .text-inner h2 {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 38px;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+@media screen and (max-width: 1200px) {
+  .register-home {
+    height: 1300px;
   }
 }
 
 
+/*Estilos de nueva operacion*/
+.operation-home {
+  background-color: transparent;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  width: 100%;
+  background-color: #329998;
+  color: rgba(255, 255, 255, 0.8);
+  overflow: hidden;
+}
+.operation-home .gradient {
+  background-color: transparent;
+  background-size: cover;
+  background: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  opacity: .9;
+  -webkit-backface-visibility: hidden;
+/*  background-color: #329998;*/
+  /* IE9, iOS 3.2+ */
+/*  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxsaW5lYXJHcmFkaWVudCBpZD0idnNnZyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIHN0b3AtY29sb3I9IiMzMjk5OTgiIHN0b3Atb3BhY2l0eT0iMSIgb2Zmc2V0PSIwIi8+PHN0b3Agc3RvcC1jb2xvcj0iIzZjYzk5YyIgc3RvcC1vcGFjaXR5PSIxIiBvZmZzZXQ9IjEiLz48L2xpbmVhckdyYWRpZW50PjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjdnNnZykiIC8+PC9zdmc+);*/
+/*  background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, color-stop(0, #329998), color-stop(1, #6cc99c));*/
+  /* Android 2.3 */
+/*  background-image: -webkit-linear-gradient(top left, #329998 0%, #6cc99c 100%);*/
+  /* IE10+ */
+/*  background-image: linear-gradient(to bottom right, #329998 0%, #6cc99c 100%);*/
+/*  background-image: -ms-linear-gradient(top left, #329998 0%, #6cc99c 100%);*/
+ 
+}
+.operation-home, .operation-home .text-wrap {
+  height: 1000px;
+}
+.operation-home .text-wrap {
+  display: table;
+  width: 100%;
+  position: relative;
+  z-index: 4;
+}
+.operation-home .text-inner {
+  display: table-cell;
+  padding-top: 150px;
+  text-align: center;
+}
+.operation-home .text-inner a {
+  color: black;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.5);
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+.operation-home .text-inner a:hover, #operation-home .text-inner a:active, #operation-home .text-inner a:focus {
+  text-decoration: none;
+  color: white;
+  border-bottom: 1px dashed white;
+}
+.operation-home .text-inner h1 {
+  font-size: 50px;
+  color: white;
+  margin: 0 0 20px 0;
+}
 
+.operation-home .text-inner h2 {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 38px;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
 
+@media screen and (max-width: 1200px) {
+  .operation-home {
+    height: 1400px;
+  }
+}
+
+.credit-card, .credit-card .text-wrap {
+  height: 600px !important;
+}
+
+@media screen and (max-width: 1200px) {
+  .credit-card {
+    height: 800px !important;
+  }
+}
